@@ -3,9 +3,11 @@ package org.commander.magic
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,11 +17,15 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import commandermagicapp.composeapp.generated.resources.Res
 import commandermagicapp.composeapp.generated.resources.compose_multiplatform
+import org.commander.magic.ui.LifeCounterScreen
+import org.commander.magic.viewmodel.GameViewModel
 
 @Composable
-@Preview
 fun App() {
+    val viewModel: GameViewModel = remember { GameViewModel() }
     MaterialTheme {
-
+        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+            LifeCounterScreen(viewModel)
+        }
     }
 }
